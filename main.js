@@ -1,39 +1,15 @@
-const parts = {
-  balcony: 5,
-  "ice-close": 7,
-  "ice-wide": 6,
-  "night-ride": 4,
-  grain: 2,
-};
+const ext = { grain: "png" };
 
-async function loadPieces(name) {
-  const count = parts[name];
-  const chunks = await Promise.all(
-    Array.from({ length: count }, (_, i) =>
-      fetch("photos/" + name + "." + i + ".txt").then((response) => {
-        if (!response.ok) throw new Error(name);
-        return response.text();
-      }),
-    ),
-  );
-  return chunks.join("").replace(/\s+/g, "");
-}
-
-const mime = { grain: "image/png" };
-
-async function mountPhotos() {
-  const jobs = Object.keys(parts).map(async (name) => {
-    const data = await loadPieces(name);
-    const url = "data:" + (mime[name] || "image/jpeg") + ";base64," + data;
-    if (name === "grain") {
-      document.querySelector(".grain").style.backgroundImage = "url(" + url + ")";
-      return;
-    }
+function mountPhotos() {
+  ["balcony", "ice-close", "ice-wide", "night-ride"].forEach((name) => {
+    const src = "photos/" + name + ".jpg";
     document.querySelectorAll('img[data-photo="' + name + '"]').forEach((img) => {
-      img.src = url;
+      img.src = src;
     });
   });
-  await Promise.all(jobs);
+
+  document.querySelector(".grain").style.backgroundImage =
+    "url(photos/grain.png)";
 }
 
 const progress = document.getElementById("progress");
