@@ -21,14 +21,22 @@ function onScroll() {
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 
-document.querySelectorAll(".track").forEach((button) => {
+const tracks = Array.from(document.querySelectorAll(".track"));
+tracks.forEach((button) => {
   button.addEventListener("click", () => {
-    document.querySelectorAll(".track").forEach((other) => {
-      other.setAttribute("aria-pressed", other === button ? "true" : "false");
+    const wasExpanded = button.getAttribute("aria-expanded") === "true";
+    tracks.forEach((other) => {
+      other.setAttribute("aria-expanded", "false");
+      const note = other.querySelector(".track-note");
+      if (note) note.hidden = true;
     });
+    if (!wasExpanded) {
+      button.setAttribute("aria-expanded", "true");
+      const note = button.querySelector(".track-note");
+      if (note) note.hidden = false;
+    }
   });
 });
-
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 

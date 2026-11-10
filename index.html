@@ -89,37 +89,69 @@
       </figure>
     </div>
 
-    <section class="filmbox">
-      <div class="row kicker">
-        <span>алиса / 16</span>
-        <span>плёнка</span>
+    <section class="memory-cassette" aria-labelledby="memory-title">
+      <div class="memory-intro">
+        <div class="row kicker"><span>личная запись / 001</span><span>только для алисы</span></div>
+        <h2 id="memory-title">кассета памяти</h2>
+        <p>Шесть дорожек. Один март, который я всё ещё храню.</p>
       </div>
-      <p class="side">сторона а</p>
-      <button class="track" type="button" data-track="01" aria-pressed="false">
-        <span class="track-top"><span class="num">01</span><span class="title">балкон</span></span>
-        <span class="line">пальмы, кресло, мы пропадаем на часы</span>
-      </button>
-      <button class="track" type="button" data-track="02" aria-pressed="false">
-        <span class="track-top"><span class="num">02</span><span class="title">шоссе</span></span>
-        <span class="line">ночь, байк, и слов уже не надо</span>
-      </button>
-      <button class="track" type="button" data-track="03" aria-pressed="false">
-        <span class="track-top"><span class="num">03</span><span class="title">жёлтое</span></span>
-        <span class="line">одно мороженое. два рта. ноль спешки</span>
-      </button>
-      <p class="side">сторона б</p>
-      <button class="track" type="button" data-track="04" aria-pressed="false">
-        <span class="track-top"><span class="num">04</span><span class="title">жмуришься</span></span>
-        <span class="line">так ты смеёшься, когда тебе хорошо</span>
-      </button>
-      <button class="track" type="button" data-track="05" aria-pressed="false">
-        <span class="track-top"><span class="num">05</span><span class="title">далеко</span></span>
-        <span class="line">километры врут. я всё равно тут</span>
-      </button>
-      <button class="track" type="button" data-track="06" aria-pressed="true">
-        <span class="track-top"><span class="num">06</span><span class="title">шестнадцать</span><span class="dot"></span></span>
-        <span class="line">можно ещё не знать. можно уже быть собой</span>
-      </button>
+      <div class="cassette" aria-hidden="true">
+        <div class="cassette-body">
+          <i class="cassette-screw screw-one"></i><i class="cassette-screw screw-two"></i>
+          <i class="cassette-screw screw-three"></i><i class="cassette-screw screw-four"></i>
+          <div class="cassette-label">
+            <div class="cassette-topline"><span>ALISA</span><span>16</span></div>
+            <div class="cassette-window">
+              <span class="reel"><span></span></span><span class="reel"><span></span></span>
+              <span class="tape-run"></span>
+            </div>
+            <div class="cassette-foot"><span>TYPE I · NORMAL</span><span>REC <b>●</b></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tape-sides">
+        <section class="tape-side" aria-labelledby="side-a-title">
+          <header class="side-header">
+            <div><p class="kicker">сторона а</p><h3 id="side-a-title">наш март</h3><p class="side-note">То, что мы прожили вместе.</p></div>
+            <span class="side-index" aria-hidden="true">A</span>
+          </header>
+          <div class="track-list">
+            <button class="track" type="button" data-track="01" aria-expanded="true" aria-controls="note-01">
+              <span class="track-main"><span class="num">01</span><span class="track-copy"><span class="title">балкон</span><span class="track-line">пальмы, кресло, мы пропадаем на часы</span></span><span class="track-mark" aria-hidden="true"></span></span>
+              <span class="track-note" id="note-01">Тот самый балкон, куда можно было просто выйти — и незаметно провести там полдня.</span>
+            </button>
+            <button class="track" type="button" data-track="02" aria-expanded="false" aria-controls="note-02">
+              <span class="track-main"><span class="num">02</span><span class="track-copy"><span class="title">ночное шоссе</span><span class="track-line">ночь, байк, и слов уже не надо</span></span><span class="track-mark" aria-hidden="true"></span></span>
+              <span class="track-note" id="note-02" hidden>У этого воспоминания нет фотографии. Зато оно почему-то до сих пор очень живое.</span>
+            </button>
+            <button class="track" type="button" data-track="03" aria-expanded="false" aria-controls="note-03">
+              <span class="track-main"><span class="num">03</span><span class="track-copy"><span class="title">жёлтое</span><span class="track-line">одно мороженое. два рта. ноль спешки</span></span><span class="track-mark" aria-hidden="true"></span></span>
+              <span class="track-note" id="note-03" hidden>Кажется, с манговым мороженым делиться было совсем не жалко. Особенно с тобой.</span>
+            </button>
+          </div>
+        </section>
+        <section class="tape-side side-b" aria-labelledby="side-b-title">
+          <header class="side-header">
+            <div><p class="kicker">сторона б</p><h3 id="side-b-title">то, что остаётся</h3><p class="side-note">То, что хочется сказать тебе сейчас.</p></div>
+            <span class="side-index" aria-hidden="true">B</span>
+          </header>
+          <div class="track-list">
+            <button class="track" type="button" data-track="04" aria-expanded="false" aria-controls="note-04">
+              <span class="track-main"><span class="num">04</span><span class="track-copy"><span class="title">ты жмуришься</span><span class="track-line">так ты смеёшься, когда тебе хорошо</span></span><span class="track-mark" aria-hidden="true"></span></span>
+              <span class="track-note" id="note-04" hidden>Я хочу, чтобы у тебя было побольше моментов, когда можно вот так зажмуриться от счастья.</span>
+            </button>
+            <button class="track" type="button" data-track="05" aria-expanded="false" aria-controls="note-05">
+              <span class="track-main"><span class="num">05</span><span class="track-copy"><span class="title">далеко</span><span class="track-line">километры врут. я всё равно тут</span></span><span class="track-mark" aria-hidden="true"></span></span>
+              <span class="track-note" id="note-05" hidden>Между нами сейчас километры, но не расстояние в том, что ты для меня значишь.</span>
+            </button>
+            <button class="track" type="button" data-track="06" aria-expanded="false" aria-controls="note-06">
+              <span class="track-main"><span class="num">06</span><span class="track-copy"><span class="title">шестнадцать</span><span class="track-line">можно ещё не знать. можно уже быть собой</span></span><span class="track-mark" aria-hidden="true"></span></span>
+              <span class="track-note" id="note-06" hidden>Тебе не нужно срочно становиться взрослой. Можно просто расти, пробовать, ошибаться и оставаться собой.</span>
+            </button>
+          </div>
+        </section>
+      </div>
+      <p class="cassette-outro">Выбери дорожку. У каждой — маленькая часть того, что я храню.</p>
     </section>
 
     <footer class="closer">
